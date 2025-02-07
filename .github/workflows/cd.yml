@@ -25,6 +25,7 @@ jobs:
             run: |
               dart format --output=none --set-exit-if-changed .
               flutter analyze
+              flutter build web
               flutter test
 
           # Authenticates in GCP with the provided user credentials.
