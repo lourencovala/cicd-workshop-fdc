@@ -50,4 +50,4 @@ jobs:
               docker push europe-west3-docker.pkg.dev/${{ vars.GCP_PROJECT_ID }}/${{ vars.GCP_ARTIFACT_REGISTRY }}/workshop:v1 
 
           - name: Deploy
-            run: gcloud run deploy 20 --image europe-west3-docker.pkg.dev/${{ vars.GCP_PROJECT_ID }}/${{ vars.GCP_ARTIFACT_REGISTRY }}/workshop:v1 --region us-central1
+            run: gcloud run deploy cicd-20 --image europe-west3-docker.pkg.dev/${{ vars.GCP_PROJECT_ID }}/${{ vars.GCP_ARTIFACT_REGISTRY }}/workshop:v1 --region us-central1
