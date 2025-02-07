@@ -20,7 +20,7 @@ jobs:
             with:
               channel: 'stable'
 
-          - name: Flutter check
+          - name: Flutter build, lint and test
             run: |
               dart format --output=none --set-exit-if-changed .
               flutter analyze
