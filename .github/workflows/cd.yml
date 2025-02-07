@@ -14,6 +14,13 @@ jobs:
           - name: Check out repository code
             uses: actions/checkout@v4
 
+          # Popular community-maintained action used to set up Flutter in GitHub workflows.
+          # Installs Flutter and allows you to run commands like flutter build, flutter test, and flutter analyze within your CI/CD pipeline.
+          - name: Setup Flutter
+            uses: subosito/flutter-action@v2
+            with:
+              channel: 'stable'
+
           - name: Flutter build, lint and test
             run: |
               dart format --output=none --set-exit-if-changed .
