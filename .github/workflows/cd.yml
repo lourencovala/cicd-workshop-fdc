@@ -45,9 +45,9 @@ jobs:
             run: |
               gcloud auth configure-docker --quiet
               gcloud auth configure-docker europe-west3-docker.pkg.dev --quiet
-              docker build -t europe-west3-docker.pkg.dev/${{ vars.GCP_PROJECT_ID }}/${{ vars.GCP_ARTIFACT_REGISTRY }}/workshop:v$VERSION .
-              docker push europe-west3-docker.pkg.dev/${{ vars.GCP_PROJECT_ID }}/${{ vars.GCP_ARTIFACT_REGISTRY }}/workshop:v$VERSION
+              docker build -t europe-west3-docker.pkg.dev/${{ vars.GCP_PROJECT_ID }}/${{ vars.GCP_ARTIFACT_REGISTRY }}/workshop:v1 .
+              docker push europe-west3-docker.pkg.dev/${{ vars.GCP_PROJECT_ID }}/${{ vars.GCP_ARTIFACT_REGISTRY }}/workshop:v1
 
           - name: Deploy
             run: |
-              gcloud run deploy {GOOGLE_CLOUD_RUN_SERVICE} --image {IMAGE_TAG} --region us-central
+              gcloud run deploy 20 --image europe-west3-docker.pkg.dev/${{ vars.GCP_PROJECT_ID }}/${{ vars.GCP_ARTIFACT_REGISTRY }}/workshop:v1 --region us-central
